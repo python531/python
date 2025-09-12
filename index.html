@@ -1,36 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> Smart Academy </title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Play Online Games</title>
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
-      background: #000;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px;
+      background: #111;
+      color: #eee;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
-    iframe {
-      border: none;
+    header {
+      padding: 0.75rem 1rem;
+      background: #1b1b1b;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .wrap {
+      height: calc(100% - 58px); /* header height */
+    }
+    .frame {
       width: 100%;
-      height: 600px;
+      height: 100%;
+      border: 0;
+      background: #000;
     }
-    h2 {
-      color: #fff;
-      font-family: sans-serif;
+    /* Fullscreen button style (optional) */
+    .controls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
     }
+    .btn {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #444;
+      background: #222;
+      color: #eee;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn:hover { background: #2a2a2a; }
   </style>
 </head>
 <body>
-  
-  <h2> online games 2</h2>
-  <iframe 
-    src="https://www.crazygames.com/embed/paper-io-2" 
-    allow="gamepad *; fullscreen">
-  </iframe>
+  <header>
+    <h1>Online Games</h1>
+  </header>
 
+  <div class="wrap">
+    <iframe
+      id="game"
+      class="frame"
+      src="https://onlinegames.io/"
+      allow="autoplay; fullscreen; gamepad; accelerometer; magnetometer; gyroscope; clipboard-read; clipboard-write"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <div class="controls">
+    <button class="btn" onclick="toggleFullscreen()">Fullscreen</button>
+  </div>
+
+  <script>
+    function toggleFullscreen() {
+      const el = document.getElementById('game');
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        if (el.requestFullscreen) el.requestFullscreen();
+      }
+    }
+  </script>
 </body>
 </html>
