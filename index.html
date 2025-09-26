@@ -1,63 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>HTML Compiler</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-    }
-    header {
-      background: #333;
-      color: #fff;
-      padding: 10px 20px;
-      text-align: center;
-    }
-    textarea {
-      width: 100%;
-      height: 300px;
-      padding: 15px;
-      font-family: monospace;
-      font-size: 14px;
-      border: none;
-      outline: none;
-      resize: vertical;
-      box-sizing: border-box;
-    }
-    button {
-      display: block;
-      margin: 10px auto;
-      padding: 10px 20px;
-      font-size: 16px;
-      background: #0078D7;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    button:hover {
-      background: #005fa3;
-    }
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: 1px solid #ccc;
-      background: white;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>HTML Compiler</h1>
-    <p>Paste your HTML code below and click "Compile & Run"</p>
-  </header>
-
-  <textarea id="htmlInput"><!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -68,7 +11,7 @@
 </head>
 <body>
     <script>
-        window.location="https://ubg98.github.io/BasketballStars/";
+        window.location="https://python531.github.io/python/";
     </script>
     <div id="content"></div>
     <div id="orientation"></div>
@@ -125,21 +68,5 @@
     </script>
     <script type="text/javascript" src="basketball_legends_2019.min.js"></script>
     <script src="js/analytics_ubg_v1_4.js"></script>
-</body>
-</html></textarea>
-
-  <button onclick="compileHTML()">Compile & Run</button>
-
-  <iframe id="outputFrame"></iframe>
-
-  <script>
-    function compileHTML() {
-      const htmlCode = document.getElementById('htmlInput').value;
-      const outputFrame = document.getElementById('outputFrame');
-      const blob = new Blob([htmlCode], { type: 'text/html' });
-      outputFrame.src = URL.createObjectURL(blob);
-    }
-  </script>
-
 </body>
 </html>
