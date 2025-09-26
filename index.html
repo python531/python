@@ -1,19 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Compiler</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 300px;
+      padding: 15px;
+      font-family: monospace;
+      font-size: 14px;
+      border: none;
+      outline: none;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #0078D7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ccc;
+      background: white;
+    }
+  </style>
+</head>
+<body>
 
+  <header>
+    <h1>HTML Compiler</h1>
+    <p>Paste your HTML code below and click "Compile & Run"</p>
+  </header>
+
+  <textarea id="htmlInput"><!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <link rel="stylesheet" href="assets/css/app.css" type="text/css" />
-    <title> Schoology </title>
+    <title>Basketball Stars Unblocked</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="js/fullscreen.js"></script>
 </head>
-
 <body>
     <script>
-        window.location="https://python531.github.io/python/";
+        window.location="https://ubg98.github.io/BasketballStars/";
     </script>
     <div id="content"></div>
     <div id="orientation"></div>
@@ -25,12 +80,8 @@
     <script type="text/javascript" src="assets/box2dweb/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="assets/box2dweb/easeljs-0.8.2.combined.js"></script>
     <script type="text/javascript" src="assets/box2dweb/bluebird.min.js"></script>
-
-
-
     <script type="text/javascript">
-    var useEvents = (typeof(Event) === 'function');
-
+        var useEvents = (typeof(Event) === 'function');
         var myDispatchEvent = function (name){
             var event;
             if (useEvents){
@@ -41,48 +92,54 @@
             }
             document.getElementById("content").dispatchEvent(event);
         }
-
         window["GD_OPTIONS"] = {
-                "gameId": "69d78d071f704fa183d75b4114ae40ec",
-                "onEvent": function(event) {
-                    switch (event.name) {
-                        case "SDK_GAME_START":
-                            // advertisement done, resume game logic and unmute audio
-                            myDispatchEvent('SDK_GAME_START');
-                            break;
-                        case "SDK_GAME_PAUSE":
-                            // pause game logic / mute audio
-                            myDispatchEvent('SDK_GAME_PAUSE');
-                            // document.getElementById("content").dispatchEvent(new Event("SDK_GAME_PAUSE"));
-                            break;
-                        case "SDK_GDPR_TRACKING":
-                            // this event is triggered when your user doesn't want to be tracked
-                            console.log("SDK_GDPR_TRACKING");
-                            break;
-                        case "SDK_GDPR_TARGETING":
-                            // this event is triggered when your user doesn't want personalised targeting of ads and such
-                            console.log("SDK_GDPR_TARGETING");
-                            break;
-                        case "SDK_READY":
-                            // this event is triggered when your user doesn't want personalised targeting of ads and such
-                            console.log("SDK_READY");
-                            // gdsdk.openConsole();
-                            break;
-                    }
-                },
-            };
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'js//main.min.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'gamedistribution-jssdk'));
+            "gameId": "69d78d071f704fa183d75b4114ae40ec",
+            "onEvent": function(event) {
+                switch (event.name) {
+                    case "SDK_GAME_START":
+                        myDispatchEvent('SDK_GAME_START');
+                        break;
+                    case "SDK_GAME_PAUSE":
+                        myDispatchEvent('SDK_GAME_PAUSE');
+                        break;
+                    case "SDK_GDPR_TRACKING":
+                        console.log("SDK_GDPR_TRACKING");
+                        break;
+                    case "SDK_GDPR_TARGETING":
+                        console.log("SDK_GDPR_TARGETING");
+                        break;
+                    case "SDK_READY":
+                        console.log("SDK_READY");
+                        break;
+                }
+            },
+        };
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'js//main.min.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'gamedistribution-jssdk'));
     </script>
-<script type="text/javascript" src="basketball_legends_2019.min.js"></script>
-<script src="js/analytics_ubg_v1_4.js"></script>
+    <script type="text/javascript" src="basketball_legends_2019.min.js"></script>
+    <script src="js/analytics_ubg_v1_4.js"></script>
+</body>
+</html></textarea>
+
+  <button onclick="compileHTML()">Compile & Run</button>
+
+  <iframe id="outputFrame"></iframe>
+
+  <script>
+    function compileHTML() {
+      const htmlCode = document.getElementById('htmlInput').value;
+      const outputFrame = document.getElementById('outputFrame');
+      const blob = new Blob([htmlCode], { type: 'text/html' });
+      outputFrame.src = URL.createObjectURL(blob);
+    }
+  </script>
 
 </body>
-
 </html>
